@@ -15,18 +15,26 @@ function getdatauseui(data) {
   data.forEach((value) => {
     addUIdata(value);
   });
-
+  let newarrforshop = [];
   let kupitbtn = document.querySelectorAll(".kupitbtn");
 
   kupitbtn.forEach((value, idx) => {
     value.addEventListener("click", () => {
-      addshop(data[idx]);
+      if (!newarrforshop.includes(idx) || newarrforshop == []) {
+        newarrforshop.push(idx);
+
+        addshop(data[idx]);
+      }
     });
   });
   let likebtn = document.querySelectorAll(".likebtn");
   likebtn.forEach((value, idx) => {
     value.addEventListener("click", () => {
-      likeshop(data[idx]);
+      if (!newarrforshop.includes(idx) || newarrforshop == []) {
+        newarrforshop.push(idx);
+
+        likeshop(data[idx]);
+      }
     });
   });
 }

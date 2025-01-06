@@ -1,10 +1,13 @@
 let likes = JSON.parse(localStorage.getItem("likes"));
 let products = document.querySelector(".products");
+let imgnotfound = document.querySelector(".notfound");
 
 function renderui(likes) {
-  likes.forEach((element) => {
-    let product = document.createElement("div");
-    product.innerHTML = `
+  if (likes.length !== 0) {
+    imgnotfound.style.display = "none";
+    likes.forEach((element) => {
+      let product = document.createElement("div");
+      product.innerHTML = `
     <div
             class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4">
             <div class="col-span-12 lg:col-span-2 img box">
@@ -95,7 +98,17 @@ function renderui(likes) {
               </div>
             </div>
           </div>`;
-    products.append(product);
-  });
+      products.append(product);
+    });
+  } else {
+    imgnotfound.style.display = "block";
+  }
 }
 renderui(likes);
+let overallprice = document.querySelector(".overallprice");
+let all = 0;
+
+likes.forEach((value) => {
+  all += value.price;
+  overallprice.innerHTML = `overallprice ${all} $`;
+});
