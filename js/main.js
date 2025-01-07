@@ -98,6 +98,8 @@ function addshop(data) {
   localStorage.setItem("carts", JSON.stringify(carts));
   datacount();
 }
+datacount();
+
 function datacount() {
   let countershop = carts.length || 0;
   const toptxt = document.querySelector(".toptxt");
@@ -111,6 +113,8 @@ function likeshop(data) {
   localStorage.setItem("likes", JSON.stringify(likes));
   datacountlike();
 }
+datacountlike();
+
 function datacountlike() {
   let countershop = likes.length || 0;
   const toptxtlike = document.querySelector(".toptxtlike");
