@@ -73,8 +73,8 @@ function renderui(carts) {
                     id="number"
                     class="border border-gray-200 rounded-full w-10 aspect-square outline-none text-gray-900 font-semibold text-sm py-1.5 px-3 bg-gray-100 text-center"
                     placeholder="2" />
-                  <button
-                    class="group rounded-[50px] border border-gray-200 shadow-sm shadow-transparent p-2.5 flex items-center justify-center bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50 hover:border-gray-300 focus-within:outline-gray-300">
+                  <button id=${element.id}
+                    class="group deletebtn  rounded-[50px] border border-gray-200 shadow-sm shadow-transparent p-2.5 flex items-center justify-center bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50 hover:border-gray-300 focus-within:outline-gray-300">
                     <svg
                       class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
                       width="18"
@@ -91,14 +91,17 @@ function renderui(carts) {
                     </svg>
                   </button>
                 </div>
-                <h6
-                  class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
+                <h6 
+                  class="text-indigo-600  font-manrope font-bold text-2xl leading-9 text-right">
                 ${element.price} $
                 </h6>
               </div>
             </div>
           </div>`;
       products.append(product);
+      product.addEventListener("click", (e) => {
+        console.log(e.target.id);
+      });
     });
   } else {
     imgnotfound.style.display = "block";
@@ -112,3 +115,4 @@ carts.forEach((value) => {
   all += value.price;
   overallprice.innerHTML = `overallprice ${all} $`;
 });
+const deletebtn = document.querySelector(".deletebtn");
