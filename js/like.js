@@ -73,4 +73,3 @@ function deleteUi(id) {
   localStorage.setItem("likes", JSON.stringify(likes));
 }
 renderui(likes);
-document.body;
