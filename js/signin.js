@@ -1,9 +1,14 @@
+// let signin = document.querySelector("signin");
+// signin.addEventListener("click", () => {
+//   localStorage.setItem("access_token", "somethign");
+//   window.location.href = "./signin.html";
+// });
 const Base_url = `https://676a9fb7863eaa5ac0df14f1.mockapi.io/izzatillo`;
 
 const form = document.getElementById("form");
 
 const loginPage = async () => {
-  const request = await fetch(Base_url);
+  const request = await fetch({ Base_url, method: "POST" });
   const response = await request.json();
 
   return response;
@@ -31,22 +36,21 @@ form.addEventListener("submit", (e) => {
       }
     });
   }
-  //   fetch(Base_url, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: emailValue,
-  //       password: passwordValue,
-  //     }),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((data) => {
-  //       console.log(data);
-  //       go(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.statusText);
-  //     });
-});
+}); //   fetch(Base_url, {
+//     method: "POST",
+//     body: JSON.stringify({
+//       email: emailValue,
+//       password: passwordValue,
+//     }),
+//     headers: { "Content-Type": "application/json" },
+//   })
+//     .then((data) => {
+//       console.log(data);
+//       go(data);
+//     })
+//     .catch((err) => {
+//       console.log(err.statusText);
+//     });
 // john@mail.com
 // changeme
 // function go(data) {

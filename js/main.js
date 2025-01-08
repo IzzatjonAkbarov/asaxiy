@@ -152,8 +152,36 @@ function addsmth() {
 }
 addsmth();
 const signout = document.querySelector(".signout");
+console.log(signout);
+
 signout.addEventListener("click", (e) => {
-  confirm("maulotlar ochib ketadi ");
-  localStorage.clear();
-  window.location.href = "./index.html";
+  const data = confirm("maulotlar ochib ketadi ");
+  if (data) {
+    localStorage.clear();
+    window.location.href = "./index.html";
+  }
 });
+if (localStorage.getItem("access_token")) {
+  signout.innerHTML = `<img src="./src/assets/svg/user.svg" alt="" />${JSON.parse(
+    localStorage.getItem("access_token")
+  )}`;
+}
+// const form = document.getElementById("form");
+// function searchdata(data) {
+//   form.addEventListener("keyup", (e) => {
+//     e.preventDefault();
+//     const search = input.value;
+//     const searchdata = data.filter((value) => {
+//       let kichckina = value.title.toLowerCase().trim();
+//       return kichckina.includes(search.toLowerCase().trim());
+//     });
+//     cards.innerHTML = "";
+//     if (searchdata.length !== 0) {
+//       getdatauseui(searchdata);
+//     } else {
+//       document.querySelector(
+//         ".container"
+//       ).innerHTML = `<h1 class="notfound">Item Not found <i class="fa-solid fa-link-slash"></i></h1>`;
+//     }
+//   });
+// }

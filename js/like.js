@@ -1,3 +1,18 @@
+function addsmth() {
+  if (!localStorage.getItem("access_token")) {
+    window.location.href = "./index.html";
+  }
+}
+addsmth();
+const signout = document.querySelector(".signout");
+signout.addEventListener("click", (e) => {
+  const data = confirm("maulotlar ochib ketadi ");
+  if (data) {
+    window.location.href = "./index.html";
+
+    localStorage.removeItem("likes");
+  }
+});
 let likes = JSON.parse(localStorage.getItem("likes"));
 let products = document.querySelector(".products");
 let imgnotfound = document.querySelector(".notfound");
@@ -49,6 +64,7 @@ products.addEventListener("click", (e) => {
   if (e.target.classList.contains("deleteelement")) {
     deleteUi(e.target.id);
     renderui(likes);
+    window.location.reload();
   }
   renderui(likes);
 });
@@ -57,9 +73,4 @@ function deleteUi(id) {
   localStorage.setItem("likes", JSON.stringify(likes));
 }
 renderui(likes);
-function addsmth() {
-  if (!localStorage.getItem("access_token")) {
-    window.location.href = "./index.html";
-  }
-}
-addsmth();
+document.body;

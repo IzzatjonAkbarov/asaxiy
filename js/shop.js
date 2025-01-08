@@ -47,7 +47,7 @@ function renderui(carts) {
                 </div>
                 <h6 
                   class="text-indigo-600  font-manrope font-bold text-2xl leading-9 text-right">
-                ${element.price.toLocaleString()} so'm
+                ${element.price} so'm
                 </h6>
               </div>
             </div>
@@ -88,7 +88,7 @@ products.addEventListener("click", (e) => {
           return {
             ...value,
             count: (value.count -= 1),
-            active_price: value.count * value.price,
+            price: value.count * value.price,
           };
           console.log(e.target.id);
         }
@@ -109,3 +109,13 @@ function addsmth() {
   }
 }
 addsmth();
+const signout = document.querySelector(".signout");
+console.log(signout);
+
+signout.addEventListener("click", (e) => {
+  const data = confirm("maulotlar ochib ketadi ");
+  if (data) {
+    localStorage.clear();
+    window.location.href = "./index.html";
+  }
+});
