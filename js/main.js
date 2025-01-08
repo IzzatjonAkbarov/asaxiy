@@ -1,14 +1,20 @@
 let carts = JSON.parse(localStorage.getItem("carts")) || [];
+let BASE_URL = "https://676a9fb7863eaa5ac0df14f1.mockapi.io/asaxiy";
+const loader = document.getElementById("load");
 
 const cards = document.querySelector(".cards");
 const getDataFuncForFetch = async () => {
-  const request = await fetch("https://fakestoreapi.com/products");
+  loadingbegin();
+  const request = await fetch(BASE_URL);
   const response = await request.json();
+  loadingstop();
+
   return response;
 };
 
 getDataFuncForFetch().then((data) => {
   getdatauseui(data);
+  type(data);
 });
 
 function getdatauseui(data) {
@@ -51,28 +57,26 @@ function addUIdata(value) {
   card.innerHTML = `
     <div>
       <img class="imgofcard mx-auto" src="${
-        value.image || "default-image.jpg"
+        value.img || "default-image.jpg"
       }" alt="" />
     </div>
     <div class="txtarea p-[15px]">
       <h1 class="text-[14px] multi-line font-medium">${
-        value.title || "No Title"
+        value.name || "No Title"
       }</h1>
       <div class="stars flex items-center justify-between my-[8px]">
-        <p class="text-[6px] flex items-center gap-1">${data_i(
-          Math.round(value.rating?.rate || 0)
-        )}</p>
-        <p>${value.rating?.count || 0} отзывов</p>
+        <p class="text-[6px] flex items-center gap-1">${data_i(5)}</p>
+        <p>${value.have || 0} отзывов</p>
       </div>
       <div class="prices">
         <p class="text-[12px] font-normal text-[#94a3b8]">
-          <s>${Math.round(value.price + (value.price % 2)) || 0} сум</s>
+          <s>${value.old_price} сум</s>
         </p>
         <p class="text-[18px] font-bold text-[#006bff] my-[4px]">${
-          value.price || 0
+          value.price.toLocaleString() || 0
         } сум</p>
         <button class="text-[#fe7300] border rounded-md border-[#fe7300] p-[6px] w-[100%] text-left text-[14px] font-medium hover:bg-[#fe7300] hover:text-white transition-all active:scale-95">
-          ${Math.ceil((value.price || 0) / 12) + 10} сум x 12 мес
+          ${value.month_payment} сум x ${value.month} мес
         </button>
       </div>
       <div class="btns flex items-center gap-1 mt-[15px]">
@@ -120,3 +124,36 @@ function datacountlike() {
   const toptxtlike = document.querySelector(".toptxtlike");
   toptxtlike.innerHTML = countershop;
 }
+let btns = document.querySelector(".btns");
+function type(data) {
+  btns.addEventListener("click", (e) => {
+    if (e.target.id !== "" && e.target.id !== "all") {
+      const categorydata = data.filter((value) => value.type === e.target.id);
+      console.log(categorydata);
+
+      cards.innerHTML = "";
+      getdatauseui(categorydata);
+    } else if (e.target.id === "all") {
+      cards.innerHTML = "";
+      getdatauseui(data);
+    }
+  });
+}
+function loadingstop() {
+  loader.style.display = "none";
+}
+function loadingbegin() {
+  loader.style.display = "flex";
+}
+function addsmth() {
+  if (!localStorage.getItem("access_token")) {
+    window.location.href = "./index.html";
+  }
+}
+addsmth();
+const signout = document.querySelector(".signout");
+signout.addEventListener("click", (e) => {
+  confirm("maulotlar ochib ketadi ");
+  localStorage.clear();
+  window.location.href = "./index.html";
+});

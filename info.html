@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
+
   <body class="bg-[#F4F7FD]">
     <header class="bg-white">
       <nav class="container1 font-normal">
@@ -67,6 +68,10 @@
               class="flex items-center gap-1 text-[12px] flex-col"
               ><img src="./src/assets/svg/cart.svg" alt="" />Корзина</a
             >
+            <p
+              class="px-1 py-[0.5] toptxt text-[11px] bg-[#006bff] text-white absolute top-[-5px] right-2 rounded-[50%]">
+              0
+            </p>
           </li>
           <li class="relative">
             <a
@@ -74,6 +79,10 @@
               class="flex items-center gap-1 text-[12px] flex-col"
               ><img src="./src/assets/svg/like.svg" alt="" />Избранное</a
             >
+            <p
+              class="px-1 py-[0.5] toptxtlike text-[11px] bg-[#006bff] text-white absolute top-[-5px] right-4 rounded-[50%]">
+              0
+            </p>
           </li>
           <li>
             <a href="" class="flex items-center gap-1 text-[12px] flex-col"
@@ -81,30 +90,130 @@
             >
           </li>
           <li>
-            <a href="" class="flex items-center gap-1 text-[12px] flex-col"
+            <a
+              href=""
+              class="signout flex items-center gap-1 text-[12px] flex-col"
               ><img src="./src/assets/svg/user.svg" alt="" />Войти</a
             >
           </li>
         </ul>
       </nav>
+      <hr class="bg-[#ccc] h-[1px]" />
+      <nav class="container1">
+        <div
+          class="flex items-center gap-4 justify-between py-[20px] flex-wrap btns">
+          <button
+            class="Скидки text-[#282830] font-medium text-[15px]"
+            id="APPLE">
+            APPLE
+          </button>
+          <button
+            class="Скидки text-[#282830] font-medium text-[15px]"
+            id="TECNO">
+            TECNO
+          </button>
+          <button
+            class="Скидки text-[#282830] font-medium text-[15px]"
+            id="REDMI">
+            REDMI
+          </button>
+          <button
+            class="Скидки text-[#282830] font-medium text-[15px]"
+            id="all">
+            all
+          </button>
+        </div>
+      </nav>
     </header>
-    <section class="py-24 relative">
-      <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
-        <h2
-          class="title font-manrope font-bold text-4xl leading-10 mb-8 text-center text-black">
-          Likes Cart
-        </h2>
-        <div class="products flex flex-col">
-          <p class="notfound">
-            <i
-              class="fa-solid fa-link-slash text-[30px] flex items-center justify-center"></i>
-          </p>
+    <div
+      id="load"
+      class="w-[100%] h-[100%] fixed top-0 left-0 flex items-center justify-center z-50 bg-[#000000a2]">
+      <div class="loader"></div>
+    </div>
+    <section class="my-10">
+      <div class="container1">
+        <div class="relative">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./src/assets/img/bestseller.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/simcards.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/heaven.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/phone.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/bestseller.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/simcards.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/heaven.png" alt="" />
+              </div>
+              <div class="swiper-slide">
+                <img src="./src/assets/img/phone.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute top-[40%] left-0 flex items-center w-[100%] justify-between z-10">
+            <div
+              class="prev w-[40px] h-[40px] flex items-center justify-center border border-[#006bff] rounded-[50%] bg-white text-[#006bff] ml-[-20px]">
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div
+              class="next w-[40px] h-[40px] flex items-center justify-center border border-[#006bff] rounded-[50%] bg-white text-[#006bff] mr-[-20px]">
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <script src="./js/like.js"></script>
+    <section>
+      <div class="container1">
+        <div class="cards grid grid-cols-5 gap-5"></div>
+      </div>
+    </section>
+    <script src="./js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".next",
+          prevEl: ".prev",
+        },
+        loop: true,
+        breakpoints: {
+          280: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        },
+      });
+    </script>
     <input type="checkbox" id="check" class="hidden" />
     <nav class="container1 font-normal hidden">
       <ul class="flex items-center gap-4 justify-between py-[20px]">
@@ -177,5 +286,16 @@
         </li>
       </ul>
     </nav>
+
+    <script>
+      window.replainSettings = { id: "a3fbd909-14b4-478c-aaef-4319e72d0e3e" };
+      (function (u) {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = u;
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })("https://widget.replain.cc/dist/client.js");
+    </script>
   </body>
 </html>
