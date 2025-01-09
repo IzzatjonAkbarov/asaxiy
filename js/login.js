@@ -24,7 +24,6 @@ form.addEventListener("submit", (e) => {
         localStorage.setItem("access_token", JSON.stringify(u.name));
       } else {
         const notfound = document.querySelector(".notfound");
-        console.log(notfound);
 
         notfound.style.color = "red";
         notfound.innerHTML = "error data not found";

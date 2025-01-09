@@ -72,4 +72,3 @@ function deleteUi(id) {
   likes = likes.filter((value) => value.id !== id);
   localStorage.setItem("likes", JSON.stringify(likes));
 }
-renderui(likes);
