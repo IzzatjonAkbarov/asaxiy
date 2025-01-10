@@ -108,7 +108,7 @@ function addUIdata(value) {
         <button id="${
           value.id
         }" class="flex kupitbtn items-center gap-2 w-[100%] text-center text-white text-[13px] bg-[#006bff] px-4 py-2 rounded-[10px] hover:text-[#006bff] border border-[#006bff] hover:bg-white transition-all active:scale-95">
-          Купить в один клик
+          Купить
         </button>
         <button  id="${
           value.id
@@ -191,25 +191,7 @@ if (localStorage.getItem("access_token")) {
     localStorage.getItem("access_token")
   )}`;
 }
-// const form = document.getElementById("form");
-// function searchdata(data) {
-//   form.addEventListener("keyup", (e) => {
-//     e.preventDefault();
-//     const search = input.value;
-//     const searchdata = data.filter((value) => {
-//       let kichckina = value.title.toLowerCase().trim();
-//       return kichckina.includes(search.toLowerCase().trim());
-//     });
-//     cards.innerHTML = "";
-//     if (searchdata.length !== 0) {
-//       getdatauseui(searchdata);
-//     } else {
-//       document.querySelector(
-//         ".container"
-//       ).innerHTML = `<h1 class="notfound">Item Not found <i class="fa-solid fa-link-slash"></i></h1>`;
-//     }
-//   });
-// }
+
 let loadeingcards = document.querySelector(".cards1");
 loadeingcards.style.display = "none";
 const form = document.querySelector("#form");
