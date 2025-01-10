@@ -18,7 +18,11 @@
   </head>
 
   <body class="bg-[#F4F7FD]">
-    <header class="bg-white">
+    <p
+      class="toast py-[10px] px-[20px] w-fit text-white fixed top-[25%] z-50 left-[-100%] bg-[#006bff]">
+      signed in successfully
+    </p>
+    <header class="bg-white sticky top-0 h-[160px] z-50">
       <nav class="container1 font-normal">
         <ul class="flex items-center gap-4 justify-between py-[20px]">
           <li>
@@ -35,13 +39,17 @@
           </li>
           <li class="w-[30%] max-[1024px]:hidden">
             <form
+              id="form"
               action=""
               class="flex items-center border-2 border-[#006bff] rounded-[10px] w-[100%]">
               <input
+                id="input"
+                required
                 type="text"
                 placeholder="Поиск..."
                 class="w-[100%] p-2 outline-none rounded-[10px] text-[12px]" />
               <button
+                type="submit"
                 class="text-white bg-[#006bff] px-4 py-2 rounded-r-md hover:text-[#006bff] border-l border-l-[#006bff] hover:bg-white transition-all">
                 Искать
               </button>
@@ -90,11 +98,17 @@
             >
           </li>
           <li>
+            <a href="" class="user flex items-center gap-1 text-[12px] flex-col"
+              ><img src="./src/assets/svg/user.svg" alt=""
+            /></a>
+          </li>
+
+          <li>
             <a
               href=""
-              class="signout flex items-center gap-1 text-[12px] flex-col"
-              ><img src="./src/assets/svg/user.svg" alt="" />Войти</a
-            >
+              class="signout flex items-center gap-1 text-[12px] flex-col">
+              <i class="text-2xl fa-solid fa-right-from-bracket"></i
+            ></a>
           </li>
         </ul>
       </nav>
@@ -132,7 +146,7 @@
     </header>
     <div
       id="load"
-      class="w-[100%] h-[100%] fixed top-0 left-0 flex items-center justify-center z-50 bg-[#000000a2]">
+      class="w-[100%] h-[100%] fixed top-0 left-0 flex items-center justify-center z-40 bg-[#000000a2]">
       <div class="loader"></div>
     </div>
     <section class="my-10">
@@ -180,10 +194,11 @@
         </div>
       </div>
     </section>
-
+    <div class="cards1"></div>
     <section>
       <div class="container1">
-        <div class="cards grid grid-cols-5 gap-5"></div>
+        <div
+          class="cards grid grid-cols-5 gap-5 max-[1200px]:grid-cols-4 max-[900px]:grid-cols-3"></div>
       </div>
     </section>
     <script src="./js/main.js"></script>
@@ -219,7 +234,7 @@
         },
       });
     </script>
-    <input type="checkbox" id="check" class="hidden" />
+    <!-- <input type="checkbox" id="check" class="hidden" />
     <nav class="container1 font-normal hidden">
       <ul class="flex items-center gap-4 justify-between py-[20px]">
         <li>
@@ -286,14 +301,15 @@
           >
         </li>
         <li>
-          <a
-            href=""
-            class="flex signout items-center gap-1 text-[12px] flex-col"
+          <a href="" class="flex items-center gap-1 text-[12px] flex-col"
             ><img src="./src/assets/svg/user.svg" alt="" />Войти</a
           >
         </li>
+        <li>
+          <a class="signout" href="">LOG OUT </a>
+        </li>
       </ul>
-    </nav>
+    </nav> -->
 
     <script>
       window.replainSettings = { id: "a3fbd909-14b4-478c-aaef-4319e72d0e3e" };

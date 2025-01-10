@@ -15,7 +15,9 @@ const getDataFuncForFetch = async () => {
 getDataFuncForFetch().then((data) => {
   getdatauseui(data);
   type(data);
+  searchdata(data);
 });
+let toast = document.querySelector(".toast");
 
 function getdatauseui(data) {
   data.forEach((value) => {
@@ -28,8 +30,19 @@ function getdatauseui(data) {
     value.addEventListener("click", () => {
       if (!newarrforshop.includes(idx) || newarrforshop == []) {
         newarrforshop.push(idx);
+        toast.textContent = "Added To Cart";
 
-        addshop(data[idx]);
+        toast.classList.remove("left-[-100%]");
+        toast.classList.add("left-[0%]");
+
+        toast.classList.remove("bg-[#006bff]");
+        toast.classList.add("bg-green-400");
+
+        toast.style.transition = "1s";
+        setTimeout(() => {
+          addshop(data[idx]);
+          window.location.href = "./info.html";
+        }, 1000);
       }
     });
   });
@@ -38,8 +51,20 @@ function getdatauseui(data) {
     value.addEventListener("click", () => {
       if (!newarrforshop.includes(idx) || newarrforshop == []) {
         newarrforshop.push(idx);
+        toast.textContent = "Added To LikesCart";
 
-        likeshop(data[idx]);
+        toast.classList.remove("left-[-100%]");
+        toast.classList.add("left-[0%]");
+
+        toast.classList.remove("bg-[#006bff]");
+        toast.classList.add("bg-green-400");
+
+        toast.style.transition = "1s";
+        setTimeout(() => {
+          likeshop(data[idx]);
+
+          window.location.href = "./info.html";
+        }, 1000);
       }
     });
   });
@@ -152,7 +177,7 @@ function addsmth() {
 }
 addsmth();
 const signout = document.querySelector(".signout");
-console.log(signout);
+const user = document.querySelector(".user");
 
 signout.addEventListener("click", (e) => {
   const data = confirm("maulotlar ochib ketadi ");
@@ -162,7 +187,7 @@ signout.addEventListener("click", (e) => {
   }
 });
 if (localStorage.getItem("access_token")) {
-  signout.innerHTML = `<img src="./src/assets/svg/user.svg" alt="" />${JSON.parse(
+  user.innerHTML = `<img src="./src/assets/svg/user.svg" alt="" />${JSON.parse(
     localStorage.getItem("access_token")
   )}`;
 }
@@ -185,3 +210,27 @@ if (localStorage.getItem("access_token")) {
 //     }
 //   });
 // }
+let loadeingcards = document.querySelector(".cards1");
+loadeingcards.style.display = "none";
+const form = document.querySelector("#form");
+const input = document.querySelector("#input");
+function searchdata(data) {
+  form.addEventListener("click", (e) => {
+    e.preventDefault();
+    const search = input.value;
+    const searchdata = data.filter((value) => {
+      let kichckina = value.name.toLowerCase().trim();
+      return kichckina.includes(search.toLowerCase().trim());
+    });
+    cards.innerHTML = "";
+    if (searchdata.length !== 0) {
+      getdatauseui(searchdata);
+      loadeingcards.style.display = "none";
+    } else {
+      loadeingcards.style.display = "flex";
+      loadeingcards.style.alignItems = "center";
+      loadeingcards.style.justifyContent = "center";
+      loadeingcards.innerHTML = `<h1 class="notfound">Item Not found <i class="fa-solid fa-link-slash"></i></h1>`;
+    }
+  });
+}

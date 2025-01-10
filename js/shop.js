@@ -1,10 +1,26 @@
 let carts = JSON.parse(localStorage.getItem("carts"));
 let products = document.querySelector(".products");
 let imgnotfound = document.querySelector(".notfound");
+const signout = document.querySelector(".signout");
+const user = document.querySelector(".user");
+
+signout.addEventListener("click", (e) => {
+  const data = confirm("maulotlar ochib ketadi ");
+  if (data) {
+    window.location.href = "./index.html";
+
+    localStorage.clear();
+  }
+});
+if (localStorage.getItem("access_token")) {
+  user.innerHTML = `<img src="./src/assets/svg/user.svg" alt="" />${JSON.parse(
+    localStorage.getItem("access_token")
+  )}`;
+}
 
 function renderui(carts) {
   products.innerHTML = ``;
-  if (carts.length !== 0) {
+  if (carts) {
     imgnotfound.style.display = "none";
     carts.forEach((element) => {
       let product = document.createElement("div");
@@ -54,16 +70,31 @@ function renderui(carts) {
           </div>`;
       products.append(product);
     });
-  } else {
+  }
+  if (carts == "") {
     imgnotfound.style.display = "block";
   }
 }
 renderui(carts);
+let toast = document.querySelector(".toast");
 
 const deleteelement = document.querySelector(".deleteelement");
 products.addEventListener("click", (e) => {
   if (e.target.classList.contains("deleteelement")) {
-    deleteUi(e.target.id);
+    toast.textContent = "Product Deleted";
+
+    toast.classList.remove("left-[-100%]");
+    toast.classList.add("left-[0%]");
+
+    toast.classList.remove("bg-[#006bff]");
+    toast.classList.add("bg-red-400");
+
+    toast.style.transition = "1s";
+    setTimeout(() => {
+      deleteUi(e.target.id);
+
+      window.location.href = "./shop.html";
+    }, 1000);
   }
   if (e.target.classList.contains("increment")) {
     carts.map((value) => {
@@ -75,7 +106,6 @@ products.addEventListener("click", (e) => {
           count: (value.count += 1),
           price: value.count * value.active_price,
         };
-        console.log(e.target.id);
       }
     });
   }
@@ -109,13 +139,3 @@ function addsmth() {
   }
 }
 addsmth();
-const signout = document.querySelector(".signout");
-console.log(signout);
-
-signout.addEventListener("click", (e) => {
-  const data = confirm("maulotlar ochib ketadi ");
-  if (data) {
-    localStorage.clear();
-    window.location.href = "./index.html";
-  }
-});

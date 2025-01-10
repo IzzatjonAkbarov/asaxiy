@@ -18,7 +18,7 @@ let products = document.querySelector(".products");
 let imgnotfound = document.querySelector(".notfound");
 
 function renderui(likes) {
-  if (likes.length !== 0) {
+  if (likes) {
     imgnotfound.style.display = "none";
     likes.forEach((element) => {
       let product = document.createElement("div");
@@ -54,21 +54,49 @@ function renderui(likes) {
           </div>`;
       products.append(product);
     });
-  } else {
+  }
+  if (likes == "") {
     imgnotfound.style.display = "block";
   }
 }
 renderui(likes);
+let toast = document.querySelector(".toast");
 
 products.addEventListener("click", (e) => {
   if (e.target.classList.contains("deleteelement")) {
-    deleteUi(e.target.id);
-    renderui(likes);
-    window.location.reload();
+    toast.textContent = "Product Deleted";
+
+    toast.classList.remove("left-[-100%]");
+    toast.classList.add("left-[0%]");
+
+    toast.classList.remove("bg-[#006bff]");
+    toast.classList.add("bg-red-400");
+
+    toast.style.transition = "1s";
+    setTimeout(() => {
+      deleteUi(e.target.id);
+
+      renderui(likes);
+
+      window.location.href = "./llike.html";
+    }, 1000);
   }
-  renderui(likes);
 });
 function deleteUi(id) {
   likes = likes.filter((value) => value.id !== id);
   localStorage.setItem("likes", JSON.stringify(likes));
+}
+const user = document.querySelector(".user");
+
+signout.addEventListener("click", (e) => {
+  const data = confirm("maulotlar ochib ketadi ");
+  if (data) {
+    localStorage.clear();
+    window.location.href = "./index.html";
+  }
+});
+if (localStorage.getItem("access_token")) {
+  user.innerHTML = `<img src="./src/assets/svg/user.svg" alt="" />${JSON.parse(
+    localStorage.getItem("access_token")
+  )}`;
 }

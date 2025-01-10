@@ -20,8 +20,19 @@ form.addEventListener("submit", (e) => {
     let user = data.find((u) => {
       u.email === emailValue && u.password === passwordValue;
       if (u.email === emailValue && u.password === passwordValue) {
-        window.location.href = "info.html";
         localStorage.setItem("access_token", JSON.stringify(u.name));
+        let toast = document.querySelector(".toast");
+        toast.textContent = "Loged in successfully";
+
+        toast.classList.remove("right-[-100%]");
+
+        toast.classList.remove("bg-[#006bff]");
+
+        toast.style.transition = "1s";
+        toast.classList.add("right-[0px]");
+        setTimeout(() => {
+          window.location.href = "info.html";
+        }, 2000);
       } else {
         const notfound = document.querySelector(".notfound");
 
@@ -30,34 +41,4 @@ form.addEventListener("submit", (e) => {
       }
     });
   }
-  //   fetch(Base_url, {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       email: emailValue,
-  //       password: passwordValue,
-  //     }),
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((data) => {
-  //       console.log(data);
-  //       go(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.statusText);
-  //     });
 });
-// john@mail.com
-// changeme
-// function go(data) {
-//   if (data.status !== 401) {
-//     window.location.href = "info.html";
-//     localStorage.setItem(
-//       "access_token",
-//       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY3Mjc2NjAyOCwiZXhwIjoxNjc0NDk0MDI4fQ.kCak9sLJr74frSRVQp0_27BY4iBCgQSmoT3vQVWKzJg"
-//     );
-//     localStorage.setItem(
-//       "refresh_token",
-//       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY3Mjc2NjAyOCwiZXhwIjoxNjcyODAyMDI4fQ.P1_rB3hJ5afwiG4TWXLq6jOAcVJkvQZ2Z-ZZOnQ1dZw"
-//     );
-//   }
-// }
