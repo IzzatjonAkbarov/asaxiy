@@ -3,48 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign In</title>
+    <link
+      rel="shortcut icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaQQcZhYghBpyBPYfwV9eRV0ns6fD3ay9JkQ&s"
+      type="image/x-icon" />
     <link rel="stylesheet" href="./dist/output.css" />
   </head>
-  <body class="bg-gradient-to-r from-blue-500 to-purple-500">
-    <p
-      class="toast py-[10px] px-[20px] w-fit text-white fixed top-10 right-[-100%] bg-[#006bff]">
-      signed in successfully
-    </p>
-    <h1 class="text-3xl">Sign In</h1>
-    <form
-      id="form"
-      class="inputs w-[50%] max-[500px]:w-[95%] mx-auto"
-      action="">
-      <p class="text-2xl font-medium pb-4">enter your email</p>
-      <input
-        class="w-[100%] p-2 rounded border border-[#006bff]"
-        id="email"
-        placeholder="email"
-        type="text"
-        required />
-      <p class="text-2xl font-medium pb-4">enter your password</p>
-      <span class="notfound"></span>
-      <input
-        class="w-[100%] p-2 rounded border border-[#006bff]"
-        id="password"
-        type="password"
-        placeholder="password"
-        required />
-      <p class="text-2xl font-medium pb-4">enter your name</p>
+  <body class="bg-blue-500">
+    <div
+      class="toast text-center fixed top-10 right-[-100%] flex items-center justify-center w-full max-w-xs p-4 mb-4 text-white bg-blue-600 rounded-lg shadow"></div>
 
-      <input
-        class="w-[100%] p-2 rounded border border-[#006bff]"
-        id="name"
-        placeholder="name"
-        type="text"
-        required />
+    <h1 class="text-3xl text-center text-white py-[20px]">Sign In</h1>
+    <form id="form" class="inputs max-w-sm mt-[10%] m-auto">
+      <div class="mb-5">
+        <label
+          for="email"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Your Username</label
+        >
+        <input
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          id="email"
+          placeholder="Username"
+          type="text"
+          required />
+      </div>
+      <div class="mb-5">
+        <label
+          for="password"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Your password</label
+        >
+        <input
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          id="password"
+          type="password"
+          placeholder="Password"
+          required />
+      </div>
+      <div class="mb-5">
+        <label
+          for="name"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Your Name</label
+        >
+        <input
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          id="name"
+          placeholder="Name"
+          type="text"
+          required />
+      </div>
+      <div class="flex items-start mb-5">
+        <div class="flex items-center h-5">
+          <input
+            id="remember"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+            required />
+        </div>
+        <label
+          for="remember"
+          class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Remember me</label
+        >
+      </div>
       <button
         class="my-2 w-[100%] items-center gap-2 text-center text-white text-[13px] bg-[#006bff] px-4 py-2 rounded-[10px] hover:text-[#006bff] border border-[#006bff] hover:bg-white transition-all active:scale-95"
         type="submit">
         Submit
       </button>
+      <p class="text-white text-[12px]">
+        if you want to log in
+        <u
+          ><a class="signin1" href="./index.html" class="underline">
+            click here</a
+          ></u
+        >
+      </p>
     </form>
+
     <script src="../js/signin.js"></script>
   </body>
 </html>

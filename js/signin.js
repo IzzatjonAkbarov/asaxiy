@@ -23,10 +23,10 @@ form.addEventListener("submit", (e) => {
       console.log(data);
     });
   let toast = document.querySelector(".toast");
-  toast.textContent = "Signed in successfully";
+  toast.textContent = "Signed in successfully ☑️";
 
   toast.classList.remove("right-[-100%]");
+  toast.classList.add("right-[20px]");
 
   toast.style.transition = "1s";
-  toast.classList.add("right-[0px]");
 });

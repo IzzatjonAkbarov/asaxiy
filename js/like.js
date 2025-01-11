@@ -67,12 +67,12 @@ products.addEventListener("click", (e) => {
     toast.textContent = "Product Deleted";
 
     toast.classList.remove("left-[-100%]");
-    toast.classList.add("left-[0%]");
+    toast.classList.add("left-[20px]");
 
-    toast.classList.remove("bg-[#006bff]");
+    toast.classList.remove("bg-blue-600");
     toast.classList.add("bg-red-400");
 
-    toast.style.transition = "1s";
+    toast.style.transition = "0.5s";
     setTimeout(() => {
       deleteUi(e.target.id);
 

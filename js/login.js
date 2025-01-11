@@ -22,22 +22,22 @@ form.addEventListener("submit", (e) => {
       if (u.email === emailValue && u.password === passwordValue) {
         localStorage.setItem("access_token", JSON.stringify(u.name));
         let toast = document.querySelector(".toast");
-        toast.textContent = "Loged in successfully";
+        toast.textContent = "Loged in successfully ☑️";
 
         toast.classList.remove("right-[-100%]");
 
-        toast.classList.remove("bg-[#006bff]");
+        toast.classList.remove("bg-blue-600");
+        toast.classList.add("bg-green-600");
 
         toast.style.transition = "1s";
-        toast.classList.add("right-[0px]");
+        toast.classList.add("right-[20px]");
         setTimeout(() => {
           window.location.href = "info.html";
         }, 2000);
       } else {
-        const notfound = document.querySelector(".notfound");
-
-        notfound.style.color = "red";
-        notfound.innerHTML = "error data not found";
+        // const notfound = document.querySelector(".notfound");
+        // notfound.style.color = "red";
+        // notfound.innerHTML = "error data not found";
       }
     });
   }

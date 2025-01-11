@@ -30,15 +30,15 @@ function getdatauseui(data) {
     value.addEventListener("click", () => {
       if (!newarrforshop.includes(idx) || newarrforshop == []) {
         newarrforshop.push(idx);
-        toast.textContent = "Added To Cart";
+        toast.textContent = "Added To 🛒";
 
         toast.classList.remove("left-[-100%]");
-        toast.classList.add("left-[0%]");
+        toast.classList.add("left-[20px]");
 
-        toast.classList.remove("bg-[#006bff]");
+        toast.classList.remove("bg-blue-600");
         toast.classList.add("bg-green-400");
 
-        toast.style.transition = "1s";
+        toast.style.transition = "0.5s";
         setTimeout(() => {
           addshop(data[idx]);
           window.location.href = "./info.html";
@@ -51,15 +51,15 @@ function getdatauseui(data) {
     value.addEventListener("click", () => {
       if (!newarrforshop.includes(idx) || newarrforshop == []) {
         newarrforshop.push(idx);
-        toast.textContent = "Added To LikesCart";
+        toast.textContent = "Added To ♥️ ";
 
         toast.classList.remove("left-[-100%]");
-        toast.classList.add("left-[0%]");
+        toast.classList.add("left-[20px]");
 
-        toast.classList.remove("bg-[#006bff]");
+        toast.classList.remove("bg-blue-600");
         toast.classList.add("bg-green-400");
 
-        toast.style.transition = "1s";
+        toast.style.transition = "0.5s";
         setTimeout(() => {
           likeshop(data[idx]);
 
