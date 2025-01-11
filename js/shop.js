@@ -63,7 +63,7 @@ function renderui(carts) {
                 </div>
                 <h6 
                   class="text-indigo-600  font-manrope font-bold text-2xl leading-9 text-right">
-                ${element.price} so'm
+                ${element.price * element.count} so'm
                 </h6>
               </div>
             </div>
