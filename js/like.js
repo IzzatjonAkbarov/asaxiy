@@ -47,7 +47,7 @@ function renderui(likes) {
                 
                 <h6
                   class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">
-                ${element.price.toLocaleString()} so'm
+                ${element.price} so'm
                 </h6>
               </div>
             </div>

@@ -82,36 +82,36 @@ function addUIdata(value) {
   card.innerHTML = `
     <div>
       <img class="imgofcard mx-auto" src="${
-        value.img || "default-image.jpg"
+        value?.img || "default-image.jpg"
       }" alt="" />
     </div>
     <div class="txtarea p-[15px]">
       <h1 class="text-[14px] multi-line font-medium">${
-        value.name || "No Title"
+        value?.name || "No Title"
       }</h1>
       <div class="stars flex items-center justify-between my-[8px]">
         <p class="text-[6px] flex items-center gap-1">${data_i(5)}</p>
-        <p>${value.have || 0} отзывов</p>
+        <p>${value?.have || 0} отзывов</p>
       </div>
       <div class="prices">
         <p class="text-[12px] font-normal text-[#94a3b8]">
-          <s>${value.old_price} сум</s>
+          <s>${value?.old_price} сум</s>
         </p>
         <p class="text-[18px] font-bold text-[#006bff] my-[4px]">${
-          value.price.toLocaleString() || 0
+          value?.price || 0
         } сум</p>
         <button class="text-[#fe7300] border rounded-md border-[#fe7300] p-[6px] w-[100%] text-left text-[14px] font-medium hover:bg-[#fe7300] hover:text-white transition-all active:scale-95">
-          ${value.month_payment} сум x ${value.month} мес
+          ${value?.month_payment} сум x ${value?.month} мес
         </button>
       </div>
       <div class="btns flex items-center gap-1 mt-[15px]">
         <button id="${
-          value.id
+          value?.id
         }" class="flex kupitbtn items-center gap-2 w-[100%] text-center text-white text-[13px] bg-[#006bff] px-4 py-2 rounded-[10px] hover:text-[#006bff] border border-[#006bff] hover:bg-white transition-all active:scale-95">
           Купить
         </button>
         <button  id="${
-          value.id
+          value?.id
         }"  class="flex likebtn  items-center gap-2  text-center text-white text-[13px] bg-[#006bff] px-4 py-2 rounded-[10px] hover:text-[#006bff] border border-[#006bff] hover:bg-white transition-all active:scale-95">
           <i class="fa-regular fa-heart"></i>
         </button>
